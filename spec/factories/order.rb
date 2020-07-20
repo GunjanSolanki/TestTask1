@@ -2,7 +2,6 @@
 
 FactoryBot.define do
   factory :order do
-    amount { 100.0 }
     status { 0 }
     association :fulfiller, factory: :distribution_center
   end

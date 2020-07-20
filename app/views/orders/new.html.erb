@@ -4,9 +4,5 @@
 		<%= order_item.label 'Select Product' %>
 		<%= order_item.collection_select :product_id, Product.all, :id, :name %>
 	<% end %>
-	<div class="form-group">
-		<%= f.label 'Amount' %>
-		<%= f.text_field :amount %>
-	</div>
 	<%= f.submit %>
 <% end %>
