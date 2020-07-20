@@ -4,6 +4,7 @@ require 'rails_helper'
 
 RSpec.describe OrderItem, type: :model do
   describe 'schema' do
+    it { is_expected.to have_db_column(:quantity).of_type(:integer) }
     it { is_expected.to have_db_column(:order_id).of_type(:uuid) }
     it { is_expected.to have_db_column(:product_id).of_type(:integer) }
   end
@@ -17,7 +18,7 @@ RSpec.describe OrderItem, type: :model do
     expect(FactoryBot.build(:order_item)).to be_valid
   end
 
-  it 'is valid with an order and a product' do
+  it 'is valid with an order, product and quantity' do
     expect(create(:order_item)).to be_valid
   end
 
@@ -29,6 +30,12 @@ RSpec.describe OrderItem, type: :model do
 
   it 'is invalid without product details' do
     order_item = FactoryBot.build(:order_item, product_id: nil)
+    order_item.valid?
+    expect(order_item.errors[:product]).to include(I18n.t('test.errors.must_exist'))
+  end
+
+  it 'is invalid without product quantity details' do
+    order_item = FactoryBot.build(:order_item, quantity: nil)
     order_item.valid?
     expect(order_item.errors[:product]).to include(I18n.t('test.errors.must_exist'))
   end

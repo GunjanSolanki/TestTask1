@@ -1,8 +1,12 @@
 <h2><%= t('order.create_order') %></h2>
 <%= form_for @order do |f| %>
-	<%= f.fields_for :order_item do |order_item| %>
-		<%= order_item.label 'Select Product' %>
-		<%= order_item.collection_select :product_id, Product.all, :id, :name %>
-	<% end %>
+	<fieldset>
+		<legend>Order Items</legend>	
+		<%= f.fields_for :order_items do |order_item| %>
+			<%= render 'order_item_fields', f: order_item %>
+		<% end %>
+		<%= link_to_add_fields 'Add Order Items', f, :order_items %>
+	</fieldset>
+
 	<%= f.submit %>
 <% end %>
