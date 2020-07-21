@@ -1,2 +1,18 @@
 <h2><%=t('welcome')%></h2>
 <%= link_to t('order.create_order'), new_order_path %>
+
+<%= render 'filter_form' %>
+
+<% if @orders.present? %>
+
+  <%= render(:partial => 'orders_by_date', :locals => { orders: @orders }) %>
+
+  <div id="orders_by_date">
+
+  <div>
+
+<% else %>
+
+  <p> No orders found! </p>
+
+<% end %>

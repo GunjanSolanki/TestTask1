@@ -1,7 +1,12 @@
 class OrdersController < ApplicationController
 
   def index
-    @orders ||= Order.includes(:order_items)
+    if params[:search] && params[:search][:orders_by_date].present?
+      order_date = params[:search][:orders_by_date].split(' - ').first
+      @orders = Order.includes(:order_items).having_orders_before(order_date)
+    else
+      @orders ||= nil
+    end
   end
 
   def new
@@ -27,7 +32,7 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(order_items_attributes: [:id, :product_id, :quantity, :_destroy])
+    params.require(:order).permit(:orders_by_date, order_items_attributes: [:id, :product_id, :quantity, :_destroy])
   end
 
   def assign_order_to_fulfiller

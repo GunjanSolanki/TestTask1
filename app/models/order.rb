@@ -6,4 +6,5 @@ class Order < ApplicationRecord
   enum status: %i[not_fulfilled fulfilled]
   accepts_nested_attributes_for :order_items, allow_destroy: true, reject_if: :all_blank
 
+  scope :having_orders_before, ->(order_date) { where("created_at > ?", DateTime.parse(order_date) ) }
 end

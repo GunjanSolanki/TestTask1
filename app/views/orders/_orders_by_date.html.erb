@@ -1,0 +1,18 @@
+<% orders.each do |order| %>
+  <table border= '1'>
+    <h3>Order <%= order.id %>
+
+    <% order.order_items.each do |item| %>
+
+      <%= render 'order_heading' %>
+      
+      <tbody>
+        <td><%= Product.find(item.product_id).name %></td>
+        <td><%= item.quantity %></td>
+        <td><%= order.fulfiller.name %></td>
+      </tbody>
+
+    <% end %>
+
+  </table>
+<% end %>

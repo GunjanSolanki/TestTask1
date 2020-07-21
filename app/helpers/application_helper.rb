@@ -13,4 +13,10 @@ module ApplicationHelper
     link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
 
   end
+
+  def order_date_from_parameters
+    if params[:search].present?
+      params[:search][:orders_by_date]
+    end
+  end
 end
