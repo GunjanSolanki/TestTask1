@@ -1,0 +1,48 @@
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('~packs/fonts/RobotoCondensed-Light.woff2') format('woff2'),
+       url('~packs/fonts/RobotoCondensed-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('~packs/fonts/RobotoCondensed-Regular.woff2') format('woff2'),
+       url('~packs/fonts/RobotoCondensed-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('~packs/fonts/RobotoCondensed-Bold.woff2') format('woff2'),
+       url('~packs/fonts/RobotoCondensed-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Rubik-Bold';
+  src: url('~packs/fonts/Rubik-Bold.eot?#iefix') format('embedded-opentype'),
+  url('~packs/fonts/Rubik-Bold.woff') format('woff'),
+  url('~packs/fonts/Rubik-Bold.ttf')  format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('~packs/fonts/Rubik-Regular.woff2') format('woff2'),
+       url('~packs/fonts/Rubik-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('~packs/fonts/Rubik-Medium.woff2') format('woff2'),
+       url('~packs/fonts/Rubik-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
